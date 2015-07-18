@@ -1,2 +1,53 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+
+<%= render 'sidebar' %>
+
+<section id="main" class="navbar-inner">
+
+  <h4 class="alert_info">欢迎使用未来宾馆管理系统。</h4>
+
+  <article class="module width_full">
+    <header><h3>业务状态</h3></header>
+    <div class="module_content">
+      <article class="stats_graph">
+        <img src="http://chart.apis.google.com/chart?chxr=0,0,3000&chxt=y&chs=520x140&cht=lc&chco=76A4FB,80C65A&chd=s:Tdjpsvyvttmiihgmnrst,OTbdcfhhggcTUTTUadfk&chls=2|2&chma=40,20,20,30" width="520" height="140" alt="" />
+      </article>
+
+      <article class="stats_overview">
+        <div class="overview_today">
+          <p class="overview_day">今天</p>
+          <p class="overview_count">1,876</p>
+          <p class="overview_type">订单</p>
+          <p class="overview_count">2,103</p>
+          <p class="overview_type">入住</p>
+        </div>
+        <div class="overview_previous">
+          <p class="overview_day">昨天</p>
+          <p class="overview_count">1,646</p>
+          <p class="overview_type">订单</p>
+          <p class="overview_count">2,054</p>
+          <p class="overview_type">入住</p>
+        </div>
+      </article>
+      <div class="clear"></div>
+    </div>
+  </article><!-- end of stats article -->
+
+  <article class="module width_full">
+    <header><h3>今日客户</h3></header>
+    <div class="module_content">
+      <!-- END_HIGHLIGHT -->
+      <%= yield %><!-- <label id="code.depot.e.include"/> -->
+      <!-- START_HIGHLIGHT -->
+    </div>
+  </article><!-- end of styles article -->
+
+
+  <h4 class="alert_warning">A Warning Alert</h4>
+
+  <h4 class="alert_error">An Error Message</h4>
+
+  <h4 class="alert_success">A Success Message</h4>
+
+
+  <div class="spacer"></div>
+</section>
