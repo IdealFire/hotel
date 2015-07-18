@@ -1,2 +1,17 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<% provide(:title, 'Sign up') %>
+
+<h1>注册用户</h1>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@user) do |f| %>
+        <%= render 'shared/error_messages' %>
+        <%= f.label :帐号： %>
+        <%= f.text_field :name %>
+        <%= f.label :密码： %>
+        <%= f.password_field :password %>
+        <%= f.label :password_confirmation, "重复密码：" %>
+        <%= f.password_field :password_confirmation %>
+        <%= f.submit "新建用户", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
