@@ -1,0 +1,14 @@
+<% provide(:title, "Edit user") %>
+
+<article class="module width_full">
+  <header><h3>更新管理员资料</h3></header>
+  <div class="module_content">
+
+      <%= form_for(@user) do |f| %>
+          <%= render 'fields', f: f %>
+          <%= f.submit "提交更新", class: "btn btn-large btn-primary" %>
+      <% end %>
+
+  </div>
+</article><!-- end of styles article -->
+<div class="spacer"></div>

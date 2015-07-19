@@ -1,17 +1,14 @@
 <% provide(:title, 'Sign up') %>
+<article class="module width_full">
+  <header><h3>新增系统用户</h3></header>
+  <div class="module_content">
 
-<h1>注册用户</h1>
-<div class="row">
-  <div class="span6 offset3">
     <%= form_for(@user) do |f| %>
         <%= render 'shared/error_messages' %>
-        <%= f.label :name,"帐号：" %>
-        <%= f.text_field :name %>
-        <%= f.label :password,"密码：" %>
-        <%= f.password_field :password %>
-        <%= f.label :password_confirmation, "重复密码：" %>
-        <%= f.password_field :password_confirmation %>
+        <%= render 'fields', f: f %>
         <%= f.submit "新建用户", class: "btn btn-large btn-primary" %>
     <% end %>
+
   </div>
-</div>
+</article><!-- end of styles article -->
+<div class="spacer"></div>

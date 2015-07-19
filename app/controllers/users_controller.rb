@@ -42,13 +42,14 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User destroyed."
+    flash[:success] = "User #{params[:name]} destroyed."
     redirect_to users_url
   end
 
   private
+
     def user_params
-      params.require(:user).permit(:name, :password, :password_confirmation)
+      params.require(:user).permit(:name, :password, :password_confirmation,:pos)
     end
 
     def signed_in_user
@@ -64,7 +65,7 @@ class UsersController < ApplicationController
     end
 
     def admin_user
-      redirect_to(signin_path) unless current_user.pos.equal?('admin')
+      redirect_to(root_path) unless current_user.admin?
     end
 
 end

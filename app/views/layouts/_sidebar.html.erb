@@ -1,0 +1,31 @@
+<section id="secondary_bar">
+  <div class="user">
+    <p>菜单</p>
+    <!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
+  </div>
+
+  <div class="breadcrumbs_container">
+    <article class="breadcrumbs"><%= link_to '首页',root_path %> <div class="breadcrumb_divider"></div> <a class="current">  </a></article>
+  </div>
+
+</section><!-- end of secondary bar -->
+
+<aside id="sidebar" class="column">
+  <hr/>
+  <h3>业务操作</h3>
+  <ul class="toggle">
+    <li class="icn_new_article"><a href="#">预订/退订管理</a></li>
+    <li class="icn_edit_article"><a href="#">客房信息管理</a></li>
+    <li class="icn_categories"><a href="#">客人信息管理</a></li>
+    <li class="icn_tags"><a href="#">住宿信息管理</a></li>
+    <li class="icn_tags"><a href="#">职工信息管理</a></li>
+    <li class="icn_view_users"><%= link_to "用户角色管理",users_path%></li>
+  </ul>
+
+
+  <footer>
+    <hr />
+    <p><strong>Copyright &copy; 2015 <br/>Hotel Management</strong></p>
+    <p>Made by <br/>IdealFire organization</p>
+  </footer>
+</aside><!-- end of sidebar -->

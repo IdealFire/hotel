@@ -1,0 +1,10 @@
+<tr>
+    <td class="tc"><input name="id[]" value="59" type="checkbox"></td>
+    <td><%= user.name %></td>
+    <td><%= user.pos %></td>
+    <td> <a class="link-update" href="#">修改</a>
+    <% if current_user.admin? && !current_user?(user) %>
+        <%= link_to "删除", user, method: :delete, data: { confirm: "You sure?" } %>
+    <% end %>
+    </td>
+</tr>
