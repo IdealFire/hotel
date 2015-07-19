@@ -5,9 +5,9 @@
   <div class="span6 offset3">
     <%= form_for(@user) do |f| %>
         <%= render 'shared/error_messages' %>
-        <%= f.label :帐号： %>
+        <%= f.label :name,"帐号：" %>
         <%= f.text_field :name %>
-        <%= f.label :密码： %>
+        <%= f.label :password,"密码：" %>
         <%= f.password_field :password %>
         <%= f.label :password_confirmation, "重复密码：" %>
         <%= f.password_field :password_confirmation %>

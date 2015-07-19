@@ -4,6 +4,38 @@
   <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <script type="text/javascript">
+      $(document).ready(function()
+              {
+                  $(".tablesorter").tablesorter();
+              }
+      );
+      $(document).ready(function() {
+
+          //When page loads...
+          $(".tab_content").hide(); //Hide all content
+          $("ul.tabs li:first").addClass("active").show(); //Activate first tab
+          $(".tab_content:first").show(); //Show first tab content
+
+          //On Click Event
+          $("ul.tabs li").click(function() {
+
+              $("ul.tabs li").removeClass("active"); //Remove any "active" class
+              $(this).addClass("active"); //Add "active" class to selected tab
+              $(".tab_content").hide(); //Hide all tab content
+
+              var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
+              $(activeTab).fadeIn(); //Fade in the active ID content
+              return false;
+          });
+      });
+  </script>
+  <script type="text/javascript">
+      $(function(){
+          $('.column').equalHeight();
+      });
+  </script>
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
 </head>
@@ -13,11 +45,19 @@
   <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "alert alert-#{key}") %>
   <% end %>
-
-  <%= yield %>
+  <% if signed_in? %>
+  <div class="container">
+    <%= render 'layouts/sidebar' %>
+    <section id="main" class="column">
+    <%= yield %>
+    </section>
+  </div>
+  <% else %>
+      <%= yield %>
+  <% end %>
 
   <%= render 'layouts/footer' %>
   <%= debug(params) if Rails.env.development? %>
-</div>
+  </div>
 </body>
 </html>
